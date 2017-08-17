@@ -24,12 +24,12 @@ def Maze_Train():
 
     eps = 1
     Anneal = 200
-    rate = 0.95
+    rate = 0.1
     iA = 0
 
     alpha = 0.25
     Anl2 = 500
-    r2 = 0.8
+    r2 = 0.05
     iA2 = 0
     
     Vs = np.zeros(nIter)
