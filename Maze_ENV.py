@@ -33,7 +33,8 @@ class TM_ENV:
 
         self.LoadMap()
 
-        self.maxStep = self.height*self.width*10
+        ## self.maxStep = self.height*self.width*10
+        self.maxStep = 1500
 
         self.s = Tp(0, 0)
         self.a = UNDF

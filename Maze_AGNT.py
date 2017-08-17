@@ -4,13 +4,13 @@ import numpy as np
 import sys
 import copy
 
-def ExecEpi(V, gamma, hENV):
+def ExecEpi(V, gamma, eps, hENV=None):
     if hENV==None:
-        hENV = TM_ENV()
+        hENV = Maze_ENV.TM_ENV()
     else:
         hENV.Init()
 
-    eps = 0.1
+    ## eps = 0.1
 
     ps = []
     VUpdate = []
@@ -26,7 +26,7 @@ def ExecEpi(V, gamma, hENV):
         hENV.SetAction(a)
         hENV.ProcessDynamic()
 
-    return ps, VUpdate
+    return (ps, VUpdate)
 
 def TD0(V, gamma, eps, hENV):
     s = hENV.GetState()
@@ -54,7 +54,7 @@ def TD0(V, gamma, eps, hENV):
                 maxV = V_new
 
     if np.random.rand() < 1-eps:
-        return maxMove, maxV
+        return (maxMove, maxV)
     else:
         index = math.floor(np.random.rand()*len(LegalMove))
-        return LegalMove[index], Vs[index]        
+        return (LegalMove[index], Vs[index])
